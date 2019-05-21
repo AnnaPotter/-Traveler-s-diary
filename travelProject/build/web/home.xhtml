@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+         <h:outputStylesheet library="css" name="homeCSS.css" />
+        <title>home</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <H1>My travel diary</H1>
+        
+        <h:panelGrid id = "panel" columns = "3" 
+      cellpadding = "10" cellspacing = "1">
+
+      <h:commandButton styleClass="a" value = "My routes" action="routesPage.xhtml"/>
+      <h:commandButton styleClass="a" value = "Add new route" action="addRoutePage.xhtml"/>
+        </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
