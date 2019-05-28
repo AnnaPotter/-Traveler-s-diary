@@ -6,22 +6,26 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="loginCSS.css" />
+        <title>Login</title>
     </h:head>
-    <h:body>
-        <h:form>
+    <h:body >
+        
+        <h:form >
             <p:growl id="growl" showDetail="true" sticky="false" life="3000"/>  
             
-            <p:panelGrid columns="2" style="position: absolute; top:250px; left: 500px">
+            <p:panelGrid id="panel" columns="2" style="position: absolute; top:250px; left: 500px">
                 <f:facet name="header"> Login Form </f:facet>
-                <h:outputText value="" />
+                <h:outputText value="Username" />
                 <p:inputText value="#{loginBean.userName}"/>
-                <h:outputText value="" />
+                <h:outputText value="Password" />
                 <p:password value="#{loginBean.password}"/>
                 <f:facet name="footer">
                     <h:commandButton value="Login" action="#{loginBean.loginControl()}"/>
                 </f:facet>
             </p:panelGrid>
+                
         </h:form>
+       
     </h:body>
 </html>

@@ -35,7 +35,9 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "route")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Route.findAll", query = "SELECT r FROM Route r")
+    @NamedQuery(name = "Route.findHikes", query = "SELECT r FROM Route r WHERE r.idUser = :idUser and r.type = :type"),
+    @NamedQuery(name = "Route.findByIdUser", query = "SELECT r FROM Route r WHERE r.idUser = :idUser")
+    , @NamedQuery(name = "Route.findAll", query = "SELECT r FROM Route r")
     , @NamedQuery(name = "Route.findByIdRoute", query = "SELECT r FROM Route r WHERE r.idRoute = :idRoute")
     , @NamedQuery(name = "Route.findByStartData", query = "SELECT r FROM Route r WHERE r.startData = :startData")
     , @NamedQuery(name = "Route.findByDuration", query = "SELECT r FROM Route r WHERE r.duration = :duration")

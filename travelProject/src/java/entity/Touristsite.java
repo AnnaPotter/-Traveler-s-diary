@@ -29,7 +29,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "touristsite")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Touristsite.findAll", query = "SELECT t FROM Touristsite t")
+        @NamedQuery(name = "Touristsite.findByIdRoute", query = "SELECT t FROM Touristsite t WHERE t.idRouteTS = :idRouteTS")
+    , @NamedQuery(name = "Touristsite.findAll", query = "SELECT t FROM Touristsite t")
     , @NamedQuery(name = "Touristsite.findByIdTouristSite", query = "SELECT t FROM Touristsite t WHERE t.idTouristSite = :idTouristSite")
     , @NamedQuery(name = "Touristsite.findByTitle", query = "SELECT t FROM Touristsite t WHERE t.title = :title")
     , @NamedQuery(name = "Touristsite.findByLocation", query = "SELECT t FROM Touristsite t WHERE t.location = :location")

@@ -29,6 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "event")
 @XmlRootElement
 @NamedQueries({
+    @NamedQuery(name = "Event.findByIdRoute", query = "SELECT e FROM Event e WHERE e.idRouteE = :idRouteE"),
     @NamedQuery(name = "Event.findAll", query = "SELECT e FROM Event e")
     , @NamedQuery(name = "Event.findByIdEvent", query = "SELECT e FROM Event e WHERE e.idEvent = :idEvent")
     , @NamedQuery(name = "Event.findByDescription", query = "SELECT e FROM Event e WHERE e.description = :description")})

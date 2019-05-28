@@ -29,7 +29,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "populatedlocality")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Populatedlocality.findAll", query = "SELECT p FROM Populatedlocality p")
+         @NamedQuery(name = "Populatedlocality.findByIdRoute", query = "SELECT p FROM Populatedlocality p WHERE p.idRoutePL = :idRoutePL")
+    , @NamedQuery(name = "Populatedlocality.findAll", query = "SELECT p FROM Populatedlocality p")
     , @NamedQuery(name = "Populatedlocality.findByIdPopulatedLocalitycol", query = "SELECT p FROM Populatedlocality p WHERE p.idPopulatedLocalitycol = :idPopulatedLocalitycol")
     , @NamedQuery(name = "Populatedlocality.findByTitle", query = "SELECT p FROM Populatedlocality p WHERE p.title = :title")
     , @NamedQuery(name = "Populatedlocality.findByType", query = "SELECT p FROM Populatedlocality p WHERE p.type = :type")

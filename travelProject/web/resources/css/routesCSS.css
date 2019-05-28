@@ -1,0 +1,42 @@
+body{
+     background-image: url(images/background2.jpg);
+}
+
+#panel {
+    border-collapse: separate;
+    border-spacing: 2px;
+    position: absolute; 
+    top: 50px;
+    left: 900px;
+}
+
+.ui-widget-content {
+    border: 1px solid #a8a8a8;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+.ui-widget {
+    font-family: Arial,sans-serif;
+    font-size: 1.5em;
+}
+
+.ui-widget-content a {
+    color: #2353e0;
+}
+
+.ui-widget {
+    font-size: 1.7em;
+}
+
+.forty-percent {
+     width: 100px;
+}
+
+.sixty-percent {
+     width: 200px;
+}
+
+.top-alignment {
+     vertical-align: top;
+}
