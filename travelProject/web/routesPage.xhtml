@@ -11,15 +11,25 @@
         <title>My routes</title>
     </h:head>
     <h:body>
-        <p:panel id="someid" header="My routes"/>
-      
+        <p:panel header="My routes"/>
+                  
+
         <h:form>        
             <div >  
                 <p:panel>
+                    <p:panelGrid columns="5" style="width: 100%" columnClasses="twenty-percent top-alignment a, twenty-percent top-alignment a,twenty-percent top-alignment a,twenty-percent top-alignment a,twenty-percent top-alignment a" > 
+                         <h:outputText value="Type" />
+                         <h:outputText value="Subtype" />   
+                         <h:outputText value="Title (note)" />   
+                         <h:outputText value="Start data" />   
+                         <h:outputText value="Duration (days)" /> 
+                     </p:panelGrid>
+                    
                     <c:forEach items="#{routesBean.getAllRoutes()}" var="route">              
-                        <h:panelGrid columns="5" style="width: 1000px" > 
-                            
-                            <h:commandLink value="#{route.type}" action="#{routesBean.show}">
+                        <p:panelGrid columns="5" style="width: 100%" columnClasses="twenty-percent top-alignment, twenty-percent top-alignment,twenty-percent top-alignment,twenty-percent top-alignment,twenty-percent top-alignment" > 
+                         
+                         
+                        <h:commandLink value="#{route.type}" action="#{routesBean.show}">
                                 <f:setPropertyActionListener target="#{routesBean.idRoute}" value="#{route.idRoute}" />
                         </h:commandLink>
                         <h:outputText value="#{route.subtype}" />   
@@ -29,7 +39,7 @@
                         <h:outputText value="#{route.startData}"/>  
                        
                         <h:outputText value="#{route.duration}"/>  
-                        </h:panelGrid>
+                        </p:panelGrid>
                     </c:forEach>
                 </p:panel>
             </div>

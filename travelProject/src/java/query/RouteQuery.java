@@ -31,10 +31,12 @@ public class RouteQuery {
         return em.createNamedQuery("Route.findByIdUser").setParameter("idUser",user).getResultList();
     }
     
-   // public List<Route> getHikes(){
-    //    FacesContext context = FacesContext.getCurrentInstance(); 
-     //   return em.createNamedQuery("Route.findByIdUser").setParameter("idUser",context.getExternalContext().getSessionMap().get("idUser")).setParameter("type", "hike").getResultList();
-   // }
+    public void removeRoute(Route route){
+        if (!em.contains(route)) {
+        route = em.merge(route);
+        }
+    em.remove(route);
+    }
 
     public Route getRoute(int idRoute) {
         return em.find(Route.class, idRoute);

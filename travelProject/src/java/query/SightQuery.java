@@ -30,5 +30,16 @@ public class SightQuery {
         Route route = (Route)context.getExternalContext().getSessionMap().get("currRoute");
         return em.createNamedQuery("Touristsite.findByIdRoute").setParameter("idRouteTS",route).getResultList();
     }
+    
+    public void removeSight(Touristsite sight){
+        if (!em.contains(sight)) {
+        sight = em.merge(sight);
+        }
+    em.remove(sight);
+    }
+
+    public Touristsite getSight(int idSight) {
+        return em.find(Touristsite.class, idSight);
+    }
 }
 

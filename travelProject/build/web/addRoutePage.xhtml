@@ -8,31 +8,31 @@
         <title>Add route</title>
     </h:head>
     <h:body>
-       <h:form>
-         
-    <p:growl id="growl" sticky="true" showDetail="true"/>
+    
+    <h:form> 
+    <p:growl id="growl" sticky="false" life="3000"  showDetail="true"/>
  
     <p:wizard >
         <p:tab id="personal" title="New Route">
             <p:panel header="Basic route information">
                 <p:messages />
                 <h:panelGrid columns="2" columnClasses="label, value">
-                    <h:outputText value="Title (note): " />
-                    <p:inputText value="#{addRouteBean.addRoute.note}"/>
+                    <h:outputText value="Title (note) *: " />
+                    <p:inputText value="#{routesBean.addRoute.note}"/>
  
-                    <h:outputText value="Type:" />
-                    <p:inputText value="#{addRouteBean.addRoute.type}" />
+                    <h:outputText value="Type: *" />
+                    <p:inputText value="#{routesBean.addRoute.type}" />
  
                     <h:outputText value="Subtype: " />
-                    <p:inputText value="#{addRouteBean.addRoute.subtype}" />
+                    <p:inputText value="#{routesBean.addRoute.subtype}" />
                     
                     <h:outputText value="Start date (dd/MM/yyyy): " />
-                    <p:inputText value="#{addRouteBean.date}" />
+                    <p:inputText value="#{routesBean.date}" />
  
-                    <h:outputText value="Duration: " />
-                    <p:inputText value="#{addRouteBean.addRoute.duration}" />
+                    <h:outputText value="Duration(days): " />
+                    <p:inputText value="#{routesBean.addRoute.duration}" />
                     
-                    <h:commandButton value="Add new route" action="#{addRouteBean.addRoute()}"/>
+                    <h:commandButton value="Add new route" action="#{routesBean.addRoute()}"/>
                 </h:panelGrid>
             </p:panel>
         </p:tab>

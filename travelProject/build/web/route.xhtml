@@ -10,37 +10,82 @@
         <title>View route</title>
     </h:head>
     <h:body>
-       <p:growl id="msgs" showDetail="true" />
-       <p:panel id="basic" header="Memorable events" style="margin-bottom:20px">
-           <c:forEach items="#{viewRouteBeen.allEvents}" var="event">
-               <p:panel>
-        <h:panelGrid columns="2" cellpadding="10">
-            <p:graphicImage library="images" name="beauty.jpg" />
-            <h:outputText
-                value="#{event.description}" />
-            </h:panelGrid>
-                   </p:panel>
-           </c:forEach>
+        <h:form>
+        <p:panel>
+            <p:panelGrid>
+                <p:row>
+            <p:growl id="message" showDetail="true" />
+     <p:column>
+    <p:commandButton value="Delete this route" action="#{routesBean.deleteRoute}" update="message">
+        <p:confirm header="Confirmation" message="Are you sure?" />
+    </p:commandButton>
+     
+    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes"  />
+        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no"  />
+    </p:confirmDialog>  
+            </p:column>
+            <p:column>
+             <p:commandButton value="To routes list" action="routesPage.xhtml"/> 
+            </p:column>
+             </p:row>
+   </p:panelGrid>
         </p:panel>
-       
+        
+            <center>
+        <H1>About my route</H1>
+        </center>
+        <p:panelGrid style="margin-top:20px; width: 100%">
+    <f:facet name="header">
+        <p:row>
+            <p:column colspan="5">Interesting sights</p:column>
+        </p:row>
+        <p:row>
+            <p:column colspan="1">Title</p:column>
+            <p:column colspan="1">Location</p:column>
+            <p:column colspan="1">Description</p:column>
+            <p:column colspan="2">Photo</p:column>
+        </p:row>
+ 
+    </f:facet>
+              <c:forEach items="#{viewRouteBeen.allSights}" var="sight">              
+                  <p:row>
+                          
+                      <p:column colspan="1">
+               <h:outputText value="#{sight.title}" />
+       </p:column>
+                      <p:column colspan="1">
+               <h:outputText value="#{sight.location}" />
+     </p:column>
+                      <p:column colspan="1">
+               <h:outputText value="#{sight.description}" />
+                     
+                       </p:column> 
+                      <p:column colspan="1">
+                <p:graphicImage library="images" name="beauty.jpg" />   
+                      </p:column> 
+                      <p:column colspan="1"> 
+                <p:commandButton value="Delete this record" action="#{viewRouteBeen.deleteSight}"
+                                 style="margin-right:20px;" styleClass="ui-priority-primary" >
+                   <p:confirm header="Confirmation" message="Are you sure?" />
+                   <f:setPropertyActionListener target="#{viewRouteBeen.idSight}" value="#{sight.idTouristSite}" />
+                   
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                      <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes"  />
+                      <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no"  />
+                </p:confirmDialog>  
+                
+                </p:commandButton>
+                 
+                   </p:column> 
+                        
+                      </p:row>  
+                        
+                    </c:forEach> 
+     
            
-       
-       <p:panel id="basic" header="Sights" style="margin-bottom:20px">
-           <c:forEach items="#{viewRouteBeen.allSights}" var="sight">
-               <p:panel id="basic" header="#{sight.title}">
-        <h:panelGrid columns="4" cellpadding="10">
-            <h:outputText
-                value="#{sight.location}" />
-            <h:outputText
-                value="#{sight.description}" />
-            <h:outputText
-                value="#{sight.photo}" />
-            <p:graphicImage library="images" name="smile.jpg" height="500" width="700" />
-            
-        </h:panelGrid>
-           </p:panel>
-           </c:forEach>
-        </p:panel>
+        </p:panelGrid>
+     </h:form>
     </h:body>
 </html>
 

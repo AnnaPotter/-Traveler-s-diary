@@ -7,12 +7,14 @@ package beans;
 
 import entity.Event;
 import entity.Populatedlocality;
+import entity.Route;
 import entity.Touristsite;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.faces.context.FacesContext;
 import query.EventQuery;
 import query.LocalityQuery;
 
@@ -28,7 +30,7 @@ public class ViewRouteBeen implements Serializable {
 
     private int idEvent;
     private int idLocation;
-    private int idSite;
+    private int idSight;
     
      @EJB
     private EventQuery queryEvent = new EventQuery();
@@ -48,9 +50,6 @@ public class ViewRouteBeen implements Serializable {
      public List<Populatedlocality> getAllLocalities(){
       return queryLocality.getAllLocalities();
     }
-    
-    
-     
     
     public EventQuery getQueryEvent() {
         return queryEvent;
@@ -84,15 +83,31 @@ public class ViewRouteBeen implements Serializable {
         this.idLocation = idLocation;
     }
 
-    public int getIdSite() {
-        return idSite;
+    public int getIdSight() {
+        return idSight;
     }
 
-    public void setIdSite(int idSite) {
-        this.idSite = idSite;
-    }    
+    public void setIdSight(int idSight) {
+        this.idSight = idSight;
+    }
+
+    public LocalityQuery getQueryLocality() {
+        return queryLocality;
+    }
+
+    public void setQueryLocality(LocalityQuery queryLocality) {
+        this.queryLocality = queryLocality;
+    }
+
+     
      
     public ViewRouteBeen() {
     }
     
+    public String deleteSight()  {
+       Touristsite sight = querySight.getSight(idSight);
+       querySight.removeSight(sight);
+       return "route?faces-redirect=true";
+    }
+   
 }

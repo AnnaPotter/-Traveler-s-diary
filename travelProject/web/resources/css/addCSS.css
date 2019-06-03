@@ -6,6 +6,27 @@
     left: 900px;
 }
 
+.a{
+    color: #9709d0d9;
+}
+
+.twenty-percent {
+     width: 20%;
+}
+
+.ui-panelgrid-cell {
+        text-align: center;
+    }
+
+h1{
+    font-family: annabelle, cursive;
+    font-weight: bold;
+    font-size: 3em;
+    padding: 1px;
+    color: #9C27B0;
+    text-shadow: -1px 1px 0 rgba(0,0,0,.3);
+}
+
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
     font-family: Bradley Hand, cursive;
     font-size: 1em;
@@ -31,11 +52,20 @@
     text-shadow: 0px 1px 0px rgba(255,255,255,0.7);
 }
 
+.ui-panelgrid .ui-grid-responsive .ui-panelgrid-cell {
+        text-align: center;
+    }
+
 .ui-widget {
     font-family: Bradley Hand, cursive;
     font-size: 2em;
 }
 
+.ui-panel .ui-panel-content {
+    border: 0;
+    background: azure;
+    padding: 0em 0em;
+}
 
 element.style {
 }
